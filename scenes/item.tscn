@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://di6we0plbswek"]
+
+[ext_resource type="Shader" uid="uid://cc53so52ge6d7" path="res://shaders/color_swap_t_shirt.gdshader" id="1_s8enn"]
+[ext_resource type="Script" uid="uid://tbywie77pqmn" path="res://scripts/item.gd" id="1_vljjh"]
+[ext_resource type="Texture2D" uid="uid://bada8nseqkpg8" path="res://assets/tshirt.png" id="2_6muww"]
+[ext_resource type="Texture2D" uid="uid://cpy50tcly2pbg" path="res://shaders/tshirt_colours.png" id="2_vljjh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s8enn"]
+shader = ExtResource("1_s8enn")
+shader_parameter/palette_texture = ExtResource("2_vljjh")
+shader_parameter/color_count = 5
+shader_parameter/palette_count = 10
+shader_parameter/tolerance = 0.1010000047975
+
+[node name="item" type="Node2D" unique_id=942505978]
+script = ExtResource("1_vljjh")
+
+[node name="Tshirt" type="Sprite2D" parent="." unique_id=762287501]
+material = SubResource("ShaderMaterial_s8enn")
+position = Vector2(32, 32)
+texture = ExtResource("2_6muww")
