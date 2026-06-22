@@ -2,8 +2,10 @@
 
 [ext_resource type="Shader" uid="uid://cc53so52ge6d7" path="res://shaders/color_swap_t_shirt.gdshader" id="1_s8enn"]
 [ext_resource type="Script" uid="uid://tbywie77pqmn" path="res://scripts/item.gd" id="1_vljjh"]
-[ext_resource type="Texture2D" uid="uid://bada8nseqkpg8" path="res://assets/tshirt.png" id="2_6muww"]
+[ext_resource type="Script" uid="uid://c7ybfo8tiw0an" path="res://scripts/texture_button.gd" id="2_ro5b8"]
 [ext_resource type="Texture2D" uid="uid://cpy50tcly2pbg" path="res://shaders/tshirt_colours.png" id="2_vljjh"]
+[ext_resource type="Texture2D" uid="uid://urkty7oiwiqn" path="res://assets/items/tshirt/tshirt_1.png" id="5_d265e"]
+[ext_resource type="Texture2D" uid="uid://b28vvux2h0bny" path="res://assets/items/tshirt/tshirt_2.png" id="6_5vp5n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s8enn"]
 shader = ExtResource("1_s8enn")
@@ -12,23 +14,30 @@ shader_parameter/color_count = 5
 shader_parameter/palette_count = 10
 shader_parameter/tolerance = 0.1010000047975
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6snss"]
-size = Vector2(50, 56)
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnalp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_d265e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5vp5n")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="item" type="Node2D" unique_id=942505978]
 script = ExtResource("1_vljjh")
 
-[node name="Tshirt" type="Sprite2D" parent="." unique_id=762287501]
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1967034513]
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("2_ro5b8")
+
+[node name="item_sprite" type="AnimatedSprite2D" parent="TextureButton" unique_id=659182065]
 material = SubResource("ShaderMaterial_s8enn")
 position = Vector2(32, 32)
-texture = ExtResource("2_6muww")
-
-[node name="ClickArea" type="Area2D" parent="." unique_id=1676569768]
-priority = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea" unique_id=1075758373]
-z_index = 4
-position = Vector2(31, 31)
-shape = SubResource("RectangleShape2D_6snss")
-
-[connection signal="mouse_entered" from="ClickArea" to="." method="_on_click_area_mouse_entered"]
+sprite_frames = SubResource("SpriteFrames_qnalp")
+frame_progress = 0.69865274

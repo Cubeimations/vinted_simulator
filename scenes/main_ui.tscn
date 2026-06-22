@@ -6,7 +6,19 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktt6o"]
 content_margin_top = 10.0
 content_margin_bottom = 10.0
-bg_color = Color(0.7792914, 0.7792914, 0.7792912, 1)
+bg_color = Color(0.92099476, 0.9209946, 0.9209946, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.47397572, 0.47397578, 0.47397548, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_513t2"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6624534, 0.66245186, 0.6624522, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -25,7 +37,6 @@ grow_vertical = 2
 script = ExtResource("1_j6a7c")
 
 [node name="MainMenu" type="Control" parent="." unique_id=971330452]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -64,62 +75,69 @@ offset_bottom = 158.0
 theme_override_font_sizes/font_size = 39
 text = "Vinted Simulator"
 
-[node name="Home" type="Control" parent="." unique_id=82502718]
+[node name="Home" type="Control" parent="." unique_id=78568334]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Sections" type="HBoxContainer" parent="Home" unique_id=371433169]
+[node name="Market" type="Control" parent="." unique_id=82502718]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sections" type="HBoxContainer" parent="Market" unique_id=371433169]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Navigation" type="VBoxContainer" parent="Home/Sections" unique_id=1016720758]
+[node name="Navigation" type="VBoxContainer" parent="Market/Sections" unique_id=1016720758]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/Sections/Navigation" unique_id=1420489614]
+[node name="MarginContainer" type="MarginContainer" parent="Market/Sections/Navigation" unique_id=1420489614]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TextureRect2" type="TextureRect" parent="Home/Sections/Navigation/MarginContainer" unique_id=1828222211]
+[node name="TextureRect2" type="TextureRect" parent="Market/Sections/Navigation/MarginContainer" unique_id=1828222211]
 custom_minimum_size = Vector2(200, 200)
 custom_maximum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("2_scoti")
 stretch_mode = 6
 
-[node name="Home" type="Button" parent="Home/Sections/Navigation" unique_id=532502981]
+[node name="Home" type="Button" parent="Market/Sections/Navigation" unique_id=532502981]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_ktt6o")
 text = "Home"
 
-[node name="Newspaper" type="Button" parent="Home/Sections/Navigation" unique_id=554993645]
+[node name="Newspaper" type="Button" parent="Market/Sections/Navigation" unique_id=554993645]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_ktt6o")
 text = "Newspaper"
 
-[node name="Market" type="Button" parent="Home/Sections/Navigation" unique_id=1443069504]
+[node name="Market" type="Button" parent="Market/Sections/Navigation" unique_id=1443069504]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
-theme_override_styles/normal = SubResource("StyleBoxFlat_ktt6o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_513t2")
 text = "Market"
 
-[node name="Trading" type="Button" parent="Home/Sections/Navigation" unique_id=2145979407]
+[node name="Trading" type="Button" parent="Market/Sections/Navigation" unique_id=2145979407]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_ktt6o")
 text = "Trading"
 
-[node name="Options" type="Button" parent="Home/Sections/Navigation" unique_id=1922782640]
+[node name="Options" type="Button" parent="Market/Sections/Navigation" unique_id=1922782640]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
@@ -127,10 +145,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ktt6o")
 text = "Options
 "
 
-[node name="Centre" type="VBoxContainer" parent="Home/Sections" unique_id=463940233]
+[node name="Centre" type="VBoxContainer" parent="Market/Sections" unique_id=463940233]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/Sections/Centre" unique_id=2081514701]
+[node name="MarginContainer" type="MarginContainer" parent="Market/Sections/Centre" unique_id=2081514701]
 custom_minimum_size = Vector2(300, 650)
 layout_mode = 2
 theme_override_constants/margin_left = 47
@@ -138,42 +156,36 @@ theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 46
 theme_override_constants/margin_bottom = 42
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Home/Sections/Centre/MarginContainer" unique_id=2056421185]
+[node name="ScrollContainer" type="ScrollContainer" parent="Market/Sections/Centre/MarginContainer" unique_id=2056421185]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="Home/Sections/Centre/MarginContainer/ScrollContainer" unique_id=1944016850]
+[node name="GridContainer" type="GridContainer" parent="Market/Sections/Centre/MarginContainer/ScrollContainer" unique_id=1944016850]
 custom_minimum_size = Vector2(300, 800)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 3
 
-[node name="Product_Details" type="VBoxContainer" parent="Home/Sections" unique_id=1319744705]
+[node name="Product_Details" type="VBoxContainer" parent="Market/Sections" unique_id=1319744705]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Home/Sections/Product_Details" unique_id=1874816033]
+[node name="MarginContainer" type="MarginContainer" parent="Market/Sections/Product_Details" unique_id=1874816033]
 custom_minimum_size = Vector2(200, 600)
 layout_mode = 2
 theme_override_constants/margin_top = 49
 
-[node name="Label" type="Label" parent="Home/Sections/Product_Details/MarginContainer" unique_id=1536027973]
+[node name="Label" type="Label" parent="Market/Sections/Product_Details/MarginContainer" unique_id=1536027973]
 layout_mode = 2
 text = "Product Details"
 
-[node name="Label2" type="Label" parent="Home/Sections/Product_Details/MarginContainer" unique_id=591429619]
+[node name="Label2" type="Label" parent="Market/Sections/Product_Details/MarginContainer" unique_id=591429619]
 layout_mode = 2
 text = "Details"
 
 [node name="Newspaper" type="Control" parent="." unique_id=1012253715]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Market" type="Control" parent="." unique_id=78568334]
 visible = false
 anchors_preset = 0
 offset_right = 40.0

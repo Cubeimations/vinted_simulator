@@ -8,13 +8,13 @@ func show_page(page_name):
 
 
 func _on_button_pressed() -> void:
-	show_page("Home")
+	show_page("Market")
 
 func generate_item() -> void:
 	var item = load("res://scenes/item_ui.tscn")
 	var item_scene = item.instantiate()
 	item_scene.set_name("item UI")
-	$Home/Sections/Centre/MarginContainer/ScrollContainer/GridContainer.add_child(item_scene)
+	$Market/Sections/Centre/MarginContainer/ScrollContainer/GridContainer.add_child(item_scene)
 	
 func _ready() -> void:
 	for n in 15:
