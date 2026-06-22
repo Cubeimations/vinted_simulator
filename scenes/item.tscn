@@ -12,6 +12,9 @@ shader_parameter/color_count = 5
 shader_parameter/palette_count = 10
 shader_parameter/tolerance = 0.1010000047975
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6snss"]
+size = Vector2(50, 56)
+
 [node name="item" type="Node2D" unique_id=942505978]
 script = ExtResource("1_vljjh")
 
@@ -19,3 +22,13 @@ script = ExtResource("1_vljjh")
 material = SubResource("ShaderMaterial_s8enn")
 position = Vector2(32, 32)
 texture = ExtResource("2_6muww")
+
+[node name="ClickArea" type="Area2D" parent="." unique_id=1676569768]
+priority = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea" unique_id=1075758373]
+z_index = 4
+position = Vector2(31, 31)
+shape = SubResource("RectangleShape2D_6snss")
+
+[connection signal="mouse_entered" from="ClickArea" to="." method="_on_click_area_mouse_entered"]
